@@ -1,0 +1,40 @@
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.csprojResolveAssemblyReference.cache
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\MainWindow.g.cs
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\App.g.cs
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA_MarkupCompile.cache
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA_MarkupCompile.lref
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\ACAA.exe.config
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\ACAA.exe
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\ACAA.pdb
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\MainWindow.baml
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.g.resources
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.Properties.Resources.resources
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.csproj.GenerateResource.Cache
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.csproj.CoreCompileInputs.cache
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.exe
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.pdb
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\DynamicDataDisplay.dll
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\DynamicDataDisplay.xml
+C:\Users\sg_vl\Documents\Диплом 2\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\ru-ru\DynamicDataDisplay.resources.dll
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\MainWindow.g.cs
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\App.g.cs
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA_MarkupCompile.cache
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA_MarkupCompile.lref
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\ACAA.exe.config
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\ACAA.exe
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\ACAA.pdb
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\DynamicDataDisplay.xml
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\bin\Debug\ru-ru\DynamicDataDisplay.resources.dll
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.csprojAssemblyReference.cache
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\MainWindow.baml
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.g.resources
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.Properties.Resources.resources
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.csproj.GenerateResource.cache
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.csproj.CoreCompileInputs.cache
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.csproj.CopyComplete
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.exe
+C:\Projects\FSim\FSAnalalyzer\Aircraft Crew Activity Analyzer\ACAA\obj\Debug\ACAA.pdb

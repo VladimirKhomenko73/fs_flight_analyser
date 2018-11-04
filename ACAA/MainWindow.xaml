@@ -1,0 +1,162 @@
+﻿<Window x:Class="ACAA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ACAA"
+        xmlns:converters="clr-namespace:ACAA.Converters"
+        xmlns:vm ="clr-namespace:ACAA.ViewModels"
+        xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
+        mc:Ignorable="d"
+        Title="Aircraft Crew Activity Analyzer" Height="1024" Width="1280">
+    <Window.Resources>
+        <converters:BoolArrayToDataViewConverter x:Key="MatrixToDataViewConverter" />
+        <converters:ParameterListToDataViewConverter x:Key="ParameterListToDataViewConverter" />
+    </Window.Resources>
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="993" VerticalAlignment="Top" Width="1272">
+            <TabItem Header="Main">
+                <Grid Background="White">
+                    <GroupBox Header="Load data" HorizontalAlignment="Left" Height="100" Margin="10,0,0,0" VerticalAlignment="Top" Width="1246">
+                        <Grid>
+                            <GroupBox Header="Open file" HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="604" Margin="10,0,0,0">
+                                <Grid Margin="0,0,0,12">
+                                    <Grid.DataContext>
+                                        <vm:OpenFileVM/>
+                                    </Grid.DataContext>
+                                    <TextBox HorizontalAlignment="Left" Height="23" Margin="4,10,0,0" Text="{Binding FilePath}" VerticalAlignment="Top" Width="385"/>
+                                    <Button Content="Browse..." Command="{Binding GetFilePath}" HorizontalAlignment="Left" Margin="404,10,0,0" VerticalAlignment="Top" Width="85" Height="23"/>
+                                    <Button Content="Load" Command="{Binding LoadFile}" HorizontalAlignment="Left" Margin="497,10,0,0" VerticalAlignment="Top" Width="85" Height="23"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Header="Open profile" HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="605" Margin="619,0,0,0">
+                                <Grid Margin="0,0,0,12">
+                                    <Grid.DataContext>
+                                        <vm:OpenProfileVM/>
+                                    </Grid.DataContext>
+                                    <TextBox HorizontalAlignment="Left" Height="23" Margin="4,10,0,0" Text="{Binding FilePath}" VerticalAlignment="Top" Width="385"/>
+                                    <Button Content="Browse..." Command="{Binding GetFilePath}" HorizontalAlignment="Left" Margin="404,10,0,0" VerticalAlignment="Top" Width="85" Height="23"/>
+                                    <Button Content="Load" Command="{Binding LoadFile}" HorizontalAlignment="Left" Margin="497,10,0,0" VerticalAlignment="Top" Width="85" Height="23"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Data" HorizontalAlignment="Left" Height="850" Margin="10,105,0,0" VerticalAlignment="Top" Width="1246">
+                        <Grid>
+                            <Grid.DataContext>
+                                <vm:DataVM/>
+                            </Grid.DataContext>
+                            <ListView ItemsSource="{Binding MatrixElementsList}" SelectedItem="{Binding SelectedElement}" HorizontalAlignment="Left" Height="344" Margin="10,10,0,0" VerticalAlignment="Top" Width="100">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Id" Width="Auto"  DisplayMemberBinding="{Binding ElementId}" />
+                                        <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ElementName}" />
+                                    </GridView>
+                                </ListView.View>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+                            <DataGrid ItemsSource="{Binding Matrix, Converter={StaticResource MatrixToDataViewConverter}, ConverterParameter=1}" EnableColumnVirtualization="True" EnableRowVirtualization="True" HorizontalAlignment="Left" Height="344" Margin="110,10,0,0" VerticalAlignment="Top" Width="1114" AutoGenerateColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" IsReadOnly="True" RowHeight="21">
+                                <DataGrid.ColumnHeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="Command" Value="{Binding DataContext.showPackage, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                        <Setter Property="CommandParameter" Value="{Binding Path=Content, RelativeSource={RelativeSource Self}}"/>
+                                    </Style>
+                                </DataGrid.ColumnHeaderStyle>
+                            </DataGrid>
+                            <DataGrid ItemsSource="{Binding PackageParametersList, Converter={StaticResource ParameterListToDataViewConverter}, ConverterParameter=1}" HorizontalAlignment="Left" Height="377" Margin="1076,441,0,0" VerticalAlignment="Top" Width="148" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" IsReadOnly="True"/>
+                            <GroupBox Header="Data analysis" Margin="715,359,10,392">
+                                <Grid>
+                                    <Button Content="Event analysis" Command="{Binding eventAnalysis}" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="85" Height="23"/>
+                                    <Button Content="State analysis" Command="{Binding stateAnalysis}" HorizontalAlignment="Left" Margin="126,16,0,0" VerticalAlignment="Top" Width="86" Height="23"/>
+                                    <Button Content="Phase analysis" Command="{Binding phaseAnalysis}" HorizontalAlignment="Left" Margin="242,16,0,0" VerticalAlignment="Top" Width="86" Height="23"/>
+                                </Grid>
+                            </GroupBox>
+                            <ListBox ItemsSource="{Binding ElementParametersChartList}" Margin="10,359,524,10">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Background="White" Width="650" Height="206">
+                                            <d3:ChartPlotter VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <d3:LineGraph  DataSource="{Binding ParameterPoints}"/>
+                                                <d3:LineGraph  DataSource="{Binding ElementPoints}" Stroke="Orange" />
+                                                <d3:Header Content="{Binding ParameterDescription}"/>
+                                            </d3:ChartPlotter>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Detector">
+                <Grid Background="White">
+                    <GroupBox Header="Detector" HorizontalAlignment="Left" Height="442" Margin="10,10,0,0" VerticalAlignment="Top" Width="1246">
+                        <Grid>
+                            <Grid.DataContext>
+                                <vm:DetectorVM/>
+                            </Grid.DataContext>
+                            <ListView ItemsSource="{Binding PhaseElementsList}" SelectedItem="{Binding SelectedPhaseElement}" HorizontalAlignment="Left" Height="344" Margin="10,10,0,0" VerticalAlignment="Top" Width="100">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Id" Width="Auto"  DisplayMemberBinding="{Binding ElementId}" />
+                                        <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ElementName}" />
+                                    </GridView>
+                                </ListView.View>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+                            <ListView ItemsSource="{Binding StateElementsList}" SelectedItem="{Binding SelectedStateElement}" HorizontalAlignment="Left" Height="344" Margin="115,10,0,0" VerticalAlignment="Top" Width="100">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Id" Width="Auto"  DisplayMemberBinding="{Binding ElementId}" />
+                                        <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ElementName}" />
+                                    </GridView>
+                                </ListView.View>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+                            <ListView ItemsSource="{Binding EventElementsList}" SelectedItem="{Binding SelectedEventElement}" HorizontalAlignment="Left" Height="344" Margin="220,10,0,0" VerticalAlignment="Top" Width="100">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Id" Width="Auto"  DisplayMemberBinding="{Binding ElementId}" />
+                                        <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ElementName}" />
+                                    </GridView>
+                                </ListView.View>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+                            <ListBox ItemsSource="{Binding ElementParametersChartList}" Margin="325,10,10,66" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Background="White" Width="650" Height="206">
+                                            <d3:ChartPlotter VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <d3:LineGraph  DataSource="{Binding ParameterPoints}"/>
+                                                <d3:LineGraph  DataSource="{Binding ElementPoints}" Stroke="Orange" />
+                                                <d3:Header Content="{Binding ParameterDescription}"/>
+                                            </d3:ChartPlotter>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <Button Content="Detect" Command="{Binding showDetections}" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="84" Height="22"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
